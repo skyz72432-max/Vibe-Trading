@@ -1,0 +1,13 @@
+cd /c/Users/ZTY/Vibe-Trading
+
+# ① 拉上游最新
+git checkout main && git pull upstream main --rebase
+
+# ② 把你的定制搬到新版上
+git checkout local-custom && git rebase main
+
+# ③ 有冲突 → 手动解决 → git add . && git rebase --continue
+#    没冲突 → 自动跳过
+
+# ④ 推送到你的 GitHub fork
+git push origin local-custom --force-with-lease

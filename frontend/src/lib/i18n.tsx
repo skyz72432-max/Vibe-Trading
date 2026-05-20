@@ -328,7 +328,7 @@ const enMessages = {
 } as const;
 
 /* ---------- Chinese messages ---------- */
-const zhMessages: typeof enMessages = {
+const zhMessages: { [K in keyof typeof enMessages]: string } = {
   home: "首页", agent: "Agent", runs: "运行", settings: "设置", alphaZoo: "Alpha Zoo",
   settingsDesc: "配置 LLM 模型和数据接口，保存到项目本地的 agent/.env 文件。",
   localApiAccess: "本地 API 访问",
@@ -652,11 +652,11 @@ const zhMessages: typeof enMessages = {
   /* ---- CandlestickChart ---- */
   candlestickIndicators: "指标",
   candlestickBareK: "仅 K 线（清除全部）",
-  appBrandName: "语  研",
+  appBrandName: "语研",
 } as const;
 
 /* ---------- Types & Context ---------- */
-type Messages = typeof enMessages;
+type Messages = Record<keyof typeof enMessages, string>;
 type Locale = "zh" | "en";
 
 const messagesMap: Record<Locale, Messages> = { zh: zhMessages, en: enMessages };

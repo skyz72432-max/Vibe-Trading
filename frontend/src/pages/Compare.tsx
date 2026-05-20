@@ -50,8 +50,6 @@ function runLabel(r: RunListItem): string {
   return r.run_id;
 }
 
-}
-
 // Also accept backend aliases
 const METRIC_ALIASES: Record<string, string> = {
   annual_return: "annualized_return",
